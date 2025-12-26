@@ -20,7 +20,7 @@ class RoleMiddleware
         }
 
         if (! in_array(Auth::user()->role, $roles)) {
-            abort(403, 'Forbidden');
+            return redirect('/login');
         }
 
         return $next($request);

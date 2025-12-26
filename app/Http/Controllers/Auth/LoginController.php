@@ -29,12 +29,22 @@ class LoginController extends Controller
                 return redirect('/admin');
             }
 
-            return redirect('/user/home');
+            return redirect('/user');
         }
 
         return back()->withErrors([
             'login' => 'Email atau kata sandi tidak sesuai.',
         ])->withInput();
 
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/login');
     }
 }

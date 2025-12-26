@@ -26,6 +26,7 @@ Route::get('/login', function () {
     return view('Auth.Login');
 });
 Route::post('/login', [LoginController::class, 'login']);
+Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
     Route::get('/', function () {
@@ -34,7 +35,7 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
 });
 
 Route::middleware(['auth', 'role:user'])->group(function () {
-    Route::get('/user/home', function () {
+    Route::get('/user', function () {
         return view('User.home');
     });
 });
