@@ -30,16 +30,31 @@
         .icon {
             color: #22c55e;
         }
+
+        .sidebar-loading .dropdown-content {
+            transition: none !important;
+        }
+
+        .sidebar-loading .chevron-down {
+            transition: none !important;
+        }
     </style>
 </head>
 
-<body class="grid grid-cols-6">
+<body class="grid grid-cols-6 sidebar-loading">
 
     <x-sidebar />
+    <main id="main" class="col-span-5 h-screen overflow-y-auto">
+        <header class="flex flex-col sticky top-0 py-6 px-8 bg-[#FFFFFF]">
+            <h1 class="text-[30px] font-[600] text-gray-800">judul</h1>
+            <span>subjurl</span>
+        </header>
 
-    <div class="p-8 col-span-5">
-        {{ $slot }}
-    </div>
+        <section class="p-8">
+            {{ $slot }}
+        </section>
+    </main>
+
 
     <x-modal-logout />
 
