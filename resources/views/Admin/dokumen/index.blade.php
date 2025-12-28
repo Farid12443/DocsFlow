@@ -1,8 +1,216 @@
 <x-app-layouts>
     <x-slot:title>
-       senmuaa
+        Semua - Dokumen
     </x-slot:title>
 
+    <x-slot:svg>
+        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+            </path>
+        </svg>
+    </x-slot:svg>
 
-    ini index dashboard
+    <x-slot:judul>
+        Dokumen
+    </x-slot:judul>
+
+    <x-slot:subjudul>
+        Kelola seluruh dokumen digital
+    </x-slot:subjudul>
+
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+        <div class="relative w-full md:w-1/3">
+            <input type="text" placeholder="Cari dokumen..."
+                class="w-full rounded-lg border border-gray-300 px-4 py-2 pl-10 text-sm focus:ring-2 focus:ring-green-500 focus:outline-none">
+            <svg class="absolute left-3 top-2.5 size-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none"
+                viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="m21 21-4.35-4.35m1.85-5.15a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z" />
+            </svg>
+        </div>
+
+        <div class="flex items-center gap-3">
+            <div class="relative">
+                <select
+                    class="appearance-none w-full rounded-md border border-gray-300 bg-white px-3 py-2 pr-8 text-sm text-gray-900 focus:outline-none">
+                    <option>Semua Kategori</option>
+                    <option>Aktif</option>
+                    <option>Arsip</option>
+                </select>
+
+                <svg class="pointer-events-none absolute right-2 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-500"
+                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                    stroke-width="2">
+                    <path d="m6 9 6 6 6-6" />
+                </svg>
+            </div>
+
+            <div class="relative">
+                <select
+                    class="appearance-none w-full rounded-md border border-gray-300 bg-white px-3 py-2 pr-8 text-sm text-gray-900 focus:outline-none">
+                    <option>Semua tanggal</option>
+                    <option>7 hari terakhir</option>
+                    <option>30 ahri terakhir</option>
+                </select>
+
+                <svg class="pointer-events-none absolute right-2 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-500"
+                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                    stroke-width="2">
+                    <path d="m6 9 6 6 6-6" />
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <div class="overflow-x-auto rounded-xl border border-gray-200 bg-white shadow-sm">
+        <table class="w-full text-sm">
+            <thead class="bg-gray-100 text-gray-700">
+                <tr>
+                    <th class="px-4 py-3 text-left">Judul</th>
+                    <th class="px-4 py-3 text-left">Deskripsi</th>
+                    <th class="px-4 py-3 text-left">Kategori</th>
+                    <th class="px-4 py-3 text-left">Pemilik</th>
+                    <th class="px-4 py-3 text-center">Status</th>
+                    <th class="px-4 py-3 text-center">Tanggal</th>
+                    <th class="px-4 py-3 text-center">Aksi</th>
+                </tr>
+            </thead>
+
+            <tbody class="divide-y">
+                <tr class="hover:bg-gray-50 transition">
+                    <td class="px-4 py-3 font-medium text-gray-800">
+                        Laporan Keuangan 2025
+                    </td>
+                    <td class="px-4 py-3">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas, fugiat!
+                    </td>
+                    <td class="px-4 py-3 text-gray-600">Keuangan</td>
+                    <td class="px-4 py-3 text-gray-600">Admin</td>
+
+                    <td class="px-4 py-3 text-center">
+                        <span class="rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-700">
+                            Aktif
+                        </span>
+                    </td>
+
+                    <td class="px-4 py-3 text-center text-gray-500">
+                        12 Jan 2025
+                    </td>
+
+                    <td class="px-4 py-3">
+                        <div class="relative group">
+                            <button data-action-btn
+                                class="rounded-md bg-gray-100 p-2 text-gray-600 hover:bg-gray-200 transition">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="size-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M12 6.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 12.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5Z" />
+                                </svg>
+                            </button>
+
+                            <div data-tooltip
+                                class="fixed w-48 bg-white border border-gray-200 rounded-md shadow-lg opacity-0 pointer-events-none transition z-9999">
+                                <a href="#"
+                                    class="flex items-center gap-2 px-4 py-2 text-sm text-blue-600 hover:bg-blue-50 transition">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="size-4">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                    </svg>
+                                    View Laporan
+                                </a>
+                                <a href="#"
+                                    class="flex items-center gap-2 px-4 py-2 text-sm text-yellow-600 hover:bg-yellow-50 transition">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="size-4">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m.75 12 3 3m0 0 3-3m-3 3v-6m-1.5-9H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+                                    </svg>
+                                    Download Laporan
+                                </a>
+                                <a href="#"
+                                    class="flex items-center gap-2 px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 transition">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="size-4">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
+                                    </svg>
+                                    Edit Laporan
+                                </a>
+                                <a href="#"
+                                    class="flex items-center gap-2 px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="size-4">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z" />
+                                    </svg>
+                                    Delete Laporan
+                                </a>
+                                <a href="#"
+                                    class="flex items-center gap-2 px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="size-4">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+                                    </svg>
+                                    Permanent Delete Laporan
+                                </a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        document.querySelectorAll('[data-action-btn]').forEach(btn => {
+            const wrapper = btn.parentElement
+            const tooltip = wrapper.querySelector('[data-tooltip]')
+
+            let isHover = false
+            let hideTimeout = null
+
+            const showTooltip = () => {
+                clearTimeout(hideTimeout)
+
+                tooltip.style.opacity = '1'
+                tooltip.style.pointerEvents = 'auto'
+
+                const rect = btn.getBoundingClientRect()
+                const tooltipWidth = tooltip.offsetWidth
+                const padding = 8
+
+                let left = rect.right - tooltipWidth
+                if (left < padding) left = padding
+                if (left + tooltipWidth > window.innerWidth - padding) {
+                    left = window.innerWidth - tooltipWidth - padding
+                }
+
+                tooltip.style.top = rect.bottom + 8 + 'px'
+                tooltip.style.left = left + 'px'
+            }
+
+            const hideTooltip = () => {
+                hideTimeout = setTimeout(() => {
+                    tooltip.style.opacity = '0'
+                    tooltip.style.pointerEvents = 'none'
+                }, 500) 
+            }
+
+            btn.addEventListener('mouseenter', showTooltip)
+            btn.addEventListener('mouseleave', hideTooltip)
+
+            tooltip.addEventListener('mouseenter', () => {
+                clearTimeout(hideTimeout)
+            })
+
+            tooltip.addEventListener('mouseleave', hideTooltip)
+        })
+    </script>
+
 </x-app-layouts>

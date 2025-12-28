@@ -45,17 +45,49 @@
 
     <x-sidebar />
     <main id="main" class="col-span-5 h-screen overflow-y-auto">
-        <header class="flex flex-col sticky top-0 py-6 px-8 bg-[#FFFFFF]">
-            <h1 class="text-[30px] font-[600] text-gray-800">judul</h1>
-            <span>subjurl</span>
+        <header class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-gray-200">
+
+            <div class="px-8 py-5 flex flex-col gap-2">
+
+                <div class="flex items-center justify-between">
+
+                    <div class="flex items-center gap-4">
+                        <div class="p-3 rounded-xl bg-green-50 text-green-600">
+                            {{ $svg }}
+                        </div>
+
+                        <div>
+                            <h1 class="text-2xl font-semibold text-gray-800">
+                                {{ $judul}}
+                            </h1>
+                            <p class="text-sm text-gray-500">
+                                {{ $subjudul }}
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+                {{-- <!-- BREADCRUMB -->
+                <nav class="mt-4 text-sm text-gray-600">
+                    <ol class="flex space-x-2">
+                        <li><a href="#" class="hover:text-blue-600 transition duration-200">Home</a></li>
+                        <li class="text-gray-400">></li>
+                        <li><a href="#" class="hover:text-blue-600 transition duration-200">Admin</a></li>
+                        <li class="text-gray-400">></li>
+                        <li class="text-gray-800 font-medium">Dokumen</li>
+                    </ol>
+                </nav> --}}
+
+            </div>
         </header>
+
 
         <section class="p-8">
             {{ $slot }}
         </section>
     </main>
-
-
+    
     <x-modal-logout />
 
     <script src="{{ asset('js/sidebar.js') }}"></script>

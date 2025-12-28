@@ -12,7 +12,7 @@
             <h1 class="text-xl font-bold text-gray-800">DocsFlow</h1>
         </div>
 
-        <a href="#" class="flex items-center justify-between px-4 py-3 rounded-lg bg-green-500 text-white shadow-md">
+        <a href="/" class="flex items-center justify-between px-4 py-3 rounded-lg bg-green-500 text-white shadow-md">
             <span>Dashboard</span>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                 stroke="currentColor" class="size-6">
