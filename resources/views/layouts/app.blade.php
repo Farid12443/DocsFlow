@@ -83,11 +83,11 @@
         </header>
 
 
-        <section class="p-8">
+        <section class="m-8">
             {{ $slot }}
         </section>
     </main>
-    
+
     <x-modal-logout />
 
     <script src="{{ asset('js/sidebar.js') }}"></script>

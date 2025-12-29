@@ -25,4 +25,10 @@ class DocumentsModel extends Model
     {
         return $this->hasMany(DocumentAccessModel::class, 'document_id');
     }
+
+    protected $table = 'tb_documents';
+
+    protected $guarded = [
+        'id',
+    ];
 }

@@ -34,7 +34,10 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
         return view('Admin.dashboard');
     });
 
-    Route::resource('/dokumen', DokumenController::class)->names('dokumen');
+    Route::resource('/dokumen', DokumenController::class);
+    Route::get('/aktif', [DokumenController::class, 'documentActiv']);
+    Route::get('/arsip', [DokumenController::class, 'documentArsip']);
+    Route::get('/create', [DokumenController::class, 'create']);
 });
 
 Route::middleware(['auth', 'role:user'])->group(function () {

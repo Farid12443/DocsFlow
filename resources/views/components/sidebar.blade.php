@@ -41,22 +41,22 @@
                 <a href="/admin/dokumen" data-parent="dokumen" class="dropdown-link block px-3 py-2 rounded hover:bg-green-50
                     hover:text-green-600 transition">
                     Semua Dokumen</a>
-                <a href="#" data-parent="dokumen"
+                <a href="/admin/aktif" data-parent="dokumen"
                     class="dropdown-link block px-3 py-2 rounded hover:bg-green-50 hover:text-green-600 transition">
                     Dokumen Aktif
                 </a>
-                <a href="#" data-parent="dokumen"
+                <a href="/admin/arsip" data-parent="dokumen"
                     class="dropdown-link block px-3 py-2 rounded hover:bg-green-50 hover:text-green-600 transition">
                     Arsip
                 </a>
-                <a href="#" data-parent="dokumen"
+                <a href="/admin/create" data-parent="dokumen"
                     class="dropdown-link block px-3 py-2 rounded hover:bg-green-50 hover:text-green-600 transition">
                     Upload Dokumen
                 </a>
             </div>
         </div>
 
-        <div class="dropdown">
+        <div class="dropdown" data-menu="kategori">
             <button
                 class="dropdown-btn flex items-center justify-between w-full px-4 py-3 rounded-lg hover:bg-gray-100 nav-item">
                 <div class="flex items-center gap-3">
@@ -73,9 +73,12 @@
                 </svg>
             </button>
             <div class="dropdown-content ml-8 mt-2 space-y-2 text-sm">
-                <a href="#" class="block px-3 py-2 rounded hover:bg-green-50 hover:text-green-600 transition">Daftar
-                    Kategori</a>
-                <a href="#" class="block px-3 py-2 rounded hover:bg-green-50 hover:text-green-600 transition">Tambah
+                <a href="/admin/kategori" data-parent="kategori" class="dropdown-link block px-3 py-2 rounded hover:bg-green-50
+                    hover:text-green-600 transition">
+                    Daftar Kategori
+                </a>
+                <a href="#" data-parent="kategori"
+                    class="block px-3 py-2 rounded hover:bg-green-50 hover:text-green-600 transition">Tambah
                     Kategori</a>
             </div>
         </div>

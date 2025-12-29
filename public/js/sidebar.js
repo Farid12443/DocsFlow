@@ -44,11 +44,17 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+    const sidebar = document.getElementById('sidebar');
+
     document.addEventListener('click', function (e) {
+
+        if (!e.target.closest('#sidebar')) return;
+
         if (!e.target.closest('.dropdown')) {
             closeAllDropdowns();
         }
     });
+
 
     requestAnimationFrame(() => {
         document.body.classList.remove('sidebar-loading');

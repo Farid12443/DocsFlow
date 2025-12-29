@@ -10,4 +10,10 @@ class CategoriesModel extends Model
     {
         return $this->hasMany(DocumentsModel::class, 'kategori_id');
     }
+
+     protected $table = 'tb_categories';
+
+    protected $guarded = [
+        'id',
+    ];
 }

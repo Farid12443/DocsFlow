@@ -1,6 +1,6 @@
 <x-app-layouts>
     <x-slot:title>
-        Semua - Dokumen
+        Dokumen - Aktif
     </x-slot:title>
 
     <x-slot:svg>
@@ -23,12 +23,12 @@
     <div class="p-8 bg-gray-50 rounded-2xl shadow-sm">
         <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-8">
             <div>
-                <h1 class="text-2xl font-bold text-gray-900">Semua Dokumen</h1>
-                <p class="text-gray-600 mt-1">Kelola semua dokumen Anda dengan mudah</p>
+                <h1 class="text-2xl font-bold text-gray-900">Arsip Dokumen</h1>
+                <p class="text-gray-600 mt-1">Lihat semua dokumen arsip Anda</p>
             </div>
             <div class="flex flex-col md:flex-row gap-4 items-center justify-end w-full md:w-auto">
                 <div class="relative w-full md:w-80">
-                    <input type="text" placeholder="Cari dokumen..."
+                    <input type="text" placeholder="Cari arsip dokumen..."
                         class="w-full rounded-lg border border-gray-300 px-4 py-3 pl-12 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none transition">
                     <svg class="absolute left-4 top-3.5 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg"
                         fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -38,20 +38,6 @@
                 </div>
 
                 <div class="flex items-center gap-3">
-                    <div class="relative">
-                        <select
-                            class="appearance-none w-full rounded-lg border border-gray-300 bg-white px-4 py-3 pr-10 text-sm text-gray-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none transition">
-                            <option>Semua Kategori</option>
-                            <option>Aktif</option>
-                            <option>Arsip</option>
-                        </select>
-                        <svg class="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-500"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="m6 9 6 6 6-6" />
-                        </svg>
-                    </div>
-
                     <div class="relative">
                         <select
                             class="appearance-none w-full rounded-lg border border-gray-300 bg-white px-4 py-3 pr-10 text-sm text-gray-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none transition">
@@ -181,7 +167,7 @@
                                             d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                                     </svg>
                                     <p class="text-lg font-medium text-gray-700">Belum ada data</p>
-                                    <p class="text-sm text-gray-500 mt-1">Tambahkan dokumen baru untuk memulai</p>
+                                    <p class="text-sm text-gray-500 mt-1">Tambahkan arsip baru untuk memulai</p>
                                 </div>
                             </td>
                         </tr>
@@ -192,7 +178,6 @@
             </table>
         </div>
     </div>
-
     <script>
         document.querySelectorAll('[data-action-btn]').forEach(btn => {
             const wrapper = btn.parentElement

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\DocumentsModel;
 use Illuminate\Http\Request;
 
 class DokumenController extends Controller
@@ -12,7 +13,23 @@ class DokumenController extends Controller
      */
     public function index()
     {
-        return view('Admin.dokumen.index');
+        $dokumen = DocumentsModel::get();
+
+        return view('Admin.dokumen.index', compact('dokumen'));
+    }
+
+    public function documentActiv()
+    {
+        $dokumen = DocumentsModel::where('status', 'aktif')->get();
+
+        return view('Admin.dokumen.aktif', compact('dokumen'));
+    }
+
+    public function documentArsip()
+    {
+        $dokumen = DocumentsModel::where('status', 'arsip')->get();
+
+        return view('Admin.dokumen.arsip', compact('dokumen'));
     }
 
     /**
@@ -20,7 +37,7 @@ class DokumenController extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.dokumen.upload');
     }
 
     /**
