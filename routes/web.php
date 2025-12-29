@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DokumenController;
+use App\Http\Controllers\Admin\KategoriController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Auth;
@@ -38,6 +39,11 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
     Route::get('/aktif', [DokumenController::class, 'documentActiv']);
     Route::get('/arsip', [DokumenController::class, 'documentArsip']);
     Route::get('/create', [DokumenController::class, 'create']);
+
+    Route::get('/kategori', [KategoriController::class, 'index']);
+    Route::get('/tambah-kategori', [KategoriController::class, 'create']);
+    Route::post('/tambah-kategori', [KategoriController::class, 'store']);
+
 });
 
 Route::middleware(['auth', 'role:user'])->group(function () {

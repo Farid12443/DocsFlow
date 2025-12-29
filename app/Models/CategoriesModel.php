@@ -11,7 +11,9 @@ class CategoriesModel extends Model
         return $this->hasMany(DocumentsModel::class, 'kategori_id');
     }
 
-     protected $table = 'tb_categories';
+    protected $table = 'tb_categories';
+
+    protected $primaryKey = 'id';
 
     protected $guarded = [
         'id',

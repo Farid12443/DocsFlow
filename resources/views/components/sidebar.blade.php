@@ -77,9 +77,10 @@
                     hover:text-green-600 transition">
                     Daftar Kategori
                 </a>
-                <a href="#" data-parent="kategori"
-                    class="block px-3 py-2 rounded hover:bg-green-50 hover:text-green-600 transition">Tambah
-                    Kategori</a>
+                <a href="/admin/tambah-kategori" data-parent="kategori" class="dropdown-link block px-3 py-2 rounded hover:bg-green-50
+                    hover:text-green-600 transition">
+                    Tambah Kategori
+                </a>
             </div>
         </div>
 

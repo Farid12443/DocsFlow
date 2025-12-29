@@ -28,6 +28,8 @@ class DocumentsModel extends Model
 
     protected $table = 'tb_documents';
 
+    protected $primaryKey = 'id';
+
     protected $guarded = [
         'id',
     ];
