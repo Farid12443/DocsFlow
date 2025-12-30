@@ -20,26 +20,38 @@
         Kelola seluruh dokumen digital
     </x-slot:subjudul>
 
-
     <div class="bg-white rounded-xl shadow p-6 space-y-6">
         <h2 class="text-xl font-semibold text-gray-800">Upload Dokumen</h2>
 
-        <form class="space-y-6">
+        <form class="space-y-6" action="{{ route('dokumen.store') }}" method="post" enctype="multipart/form-data">
+            @csrf
+            @method('POST')
             <div>
-                <label for="judul" class="block text-sm font-medium text-gray-700">Judul Dokumen</label>
-                <input type="text" id="judul" name="judul" placeholder="Contoh: Surat Keputusan"
-                    class="mt-1 p-2 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-green-500 focus:border-green-500"
-                    required>
+                <label for="judul_laporan" class="block text-sm font-medium text-gray-700">Judul Dokumen</label>
+                <input type="text" id="judul" name="judul_laporan" placeholder="Contoh: Surat Keputusan"
+                    class="mt-1 p-2 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-green-500 focus:border-green-500">
+                @error('judul_laporan')
+                    <span class="text-red-500 text-sm">{{ $message }}</span>
+                @enderror
             </div>
 
             <div>
                 <label for="kategori" class="block text-sm font-medium text-gray-700">Kategori</label>
                 <select id="kategori" name="kategori"
                     class="mt-1 p-2 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-green-500 focus:border-green-500">
-                    <option value="">-- Pilih Kategori --</option>
-                    <option value="surat">Surat</option>
-                    <option value="laporan">Laporan</option>
-                    <option value="peraturan">Peraturan</option>
+
+                    <option value="" disabled {{ old('kategori') ? '' : 'selected' }}>
+                        -- Pilih Kategori --
+                    </option>
+
+                    @forelse ($kategori as $item)
+                        <option value="{{ $item->id }}" {{ old('kategori') == $item->id ? 'selected' : '' }}>
+                            {{ $item->nama_kategori }} - {{ $item->keterangan }}
+                        </option>
+                    @empty
+                        <option value="">Belum ada kategori, Silahkan tambah kategori</option>
+                    @endforelse
+
                 </select>
             </div>
 
@@ -89,38 +101,27 @@
 
                     <input id="file" name="file" type="file" accept=".pdf,.doc,.docx,.jpg,.png" class="hidden" required>
                 </label>
+                @error('file')
+                    <span class="text-red-500 text-sm">{{ $message }}</span>
+                @enderror
             </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                    <label for="versi" class="block text-sm font-medium text-gray-700">Versi</label>
-                    <input type="text" id="versi" name="versi" placeholder="v1.0"
-                        class="mt-1 block w-full p-2 rounded-lg border-gray-300 shadow-sm focus:ring-green-500 focus:border-green-500">
-                </div>
-
-                <div>
-                    <label for="status" class="block text-sm font-medium text-gray-700">Status</label>
-                    <select id="status" name="status"
-                        class="mt-1 p-2 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-green-500 focus:border-green-500">
-                        <option value="aktif">Aktif</option>
-                        <option value="arsip">Arsip</option>
-                    </select>
-                </div>
-            </div>
-
 
             <div>
-                <label for="catatan" class="block text-sm font-medium text-gray-700">Catatan Perubahan</label>
-                <textarea id="catatan" name="catatan" rows="2" placeholder="Contoh: Update isi dokumen"
-                    class="mt-1 block w-full p-2 rounded-lg border-gray-300 shadow-sm focus:ring-green-500 focus:border-green-500"></textarea>
+                <label for="status" class="block text-sm font-medium text-gray-700">Status</label>
+                <select id="status" name="status"
+                    class="mt-1 p-2 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-green-500 focus:border-green-500">
+                    <option value="aktif">Aktif</option>
+                    <option value="arsip">Arsip</option>
+                </select>
             </div>
+
 
             <div class="flex justify-end gap-3">
                 <button type="button"
                     class="px-4 py-2 rounded-lg bg-gray-200 text-gray-700 hover:bg-gray-300 transition duration-200">
                     Batal
                 </button>
-                <button type="submit"
+                <button type="submit" onclick="console.log('tes')"
                     class="px-4 py-2 rounded-lg bg-green-600 text-white hover:bg-green-700 transition duration-200">
                     Simpan Dokumen
                 </button>

@@ -71,36 +71,50 @@
 
         <div class="overflow-x-auto rounded-xl border border-gray-200 bg-white shadow-sm">
             <table class="w-full text-sm">
-                @forelse ($dokumen as $item)
-                    <thead class="bg-gray-100 text-gray-700">
-                        <tr>
-                            <th class="pl-6 py-3 text-left">Judul</th>
-                            <th class="px-4 py-3 text-left">Deskripsi</th>
-                            <th class="px-4 py-3 text-left">Kategori</th>
-                            <th class="px-4 py-3 text-left">Pemilik</th>
-                            <th class="px-4 py-3 text-center">Status</th>
-                            <th class="px-4 py-3 text-center">Tanggal</th>
-                            <th class="pr-4 py-3 text-center">Aksi</th>
-                        </tr>
-                    </thead>
 
-                    <tbody class="divide-y">
+                <thead class="bg-gray-100 text-gray-700">
+                    <tr>
+                        <th class="pl-6 py-3 text-left">Judul</th>
+                        <th class="px-4 py-3 text-left">Deskripsi</th>
+                        <th class="px-4 py-3 text-left">Kategori</th>
+                        <th class="px-4 py-3 text-left">Pemilik</th>
+                        <th class="px-4 py-3 text-center">Status</th>
+                        <th class="px-4 py-3 text-center">Tanggal</th>
+                        <th class="pr-4 py-3 text-center">Aksi</th>
+                    </tr>
+                </thead>
 
+                <tbody class="divide-y">
 
+                    @forelse ($dokumen as $item)
                         <tr class="hover:bg-gray-50 transition">
                             <td class="pl-6 py-3 font-medium text-gray-800">
-                                Laporan Keuangan 2025
+                                {{ $item->judul }}
                             </td>
-                            <td class="px-4 py-3">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas,
-                                fugiat!
+                            <td class="px-4 py-3"> {{ $item->deskripsi }}
                             </td>
-                            <td class="px-4 py-3 text-gray-600">Keuangan</td>
-                            <td class="px-4 py-3 text-gray-600">Admin</td>
+                            <td class="px-4 py-3 text-gray-600"> {{ $item->category->nama_kategori }}</td>
+                            <td class="px-4 py-3 text-gray-600">{{Str::title($item->user->role) }}</td>
 
                             <td class="px-4 py-3 text-center">
-                                <span class="rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-700">
-                                    Aktif
-                                </span>
+                                @switch($item->status)
+                                    @case('aktif')
+                                        <span class="rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-700">
+                                            Aktif
+                                        </span>
+                                        @break
+
+                                    @case('arsip')
+                                        <span class="rounded-full bg-gray-200 px-3 py-1 text-xs font-medium text-gray-700">
+                                            Arsip
+                                        </span>
+                                        @break
+
+                                    @default
+                                        <span class="rounded-full bg-red-100 px-3 py-1 text-xs font-medium text-red-700">
+                                            Tidak Diketahui
+                                        </span>
+                                @endswitch
                             </td>
 
                             <td class="px-4 py-3 text-center text-gray-500">
@@ -171,7 +185,7 @@
                                 </div>
                             </td>
                         </tr>
-                @empty
+                    @empty
                         <tr>
                             <td class="px-6 py-12 text-center" colspan="7">
                                 <div class="flex flex-col items-center justify-center text-gray-500">
@@ -192,6 +206,8 @@
             </table>
         </div>
     </div>
+
+    <x-modal-success/>
 
     <script>
         document.querySelectorAll('[data-action-btn]').forEach(btn => {

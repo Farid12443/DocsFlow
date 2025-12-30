@@ -57,22 +57,20 @@
 
         <div class="overflow-x-auto rounded-xl border border-gray-200 bg-white shadow-sm">
             <table class="w-full text-sm">
-                @forelse ($dokumen as $item)
-                    <thead class="bg-gray-100 text-gray-700">
-                        <tr>
-                            <th class="pl-6 py-3 text-left">Judul</th>
-                            <th class="px-4 py-3 text-left">Deskripsi</th>
-                            <th class="px-4 py-3 text-left">Kategori</th>
-                            <th class="px-4 py-3 text-left">Pemilik</th>
-                            <th class="px-4 py-3 text-center">Status</th>
-                            <th class="px-4 py-3 text-center">Tanggal</th>
-                            <th class="pr-4 py-3 text-center">Aksi</th>
-                        </tr>
-                    </thead>
+                <thead class="bg-gray-100 text-gray-700">
+                    <tr>
+                        <th class="pl-6 py-3 text-left">Judul</th>
+                        <th class="px-4 py-3 text-left">Deskripsi</th>
+                        <th class="px-4 py-3 text-left">Kategori</th>
+                        <th class="px-4 py-3 text-left">Pemilik</th>
+                        <th class="px-4 py-3 text-center">Status</th>
+                        <th class="px-4 py-3 text-center">Tanggal</th>
+                        <th class="pr-4 py-3 text-center">Aksi</th>
+                    </tr>
+                </thead>
 
-                    <tbody class="divide-y">
-
-
+                <tbody class="divide-y">
+                    @forelse ($dokumen as $item)
                         <tr class="hover:bg-gray-50 transition">
                             <td class="pl-6 py-3 font-medium text-gray-800">
                                 Laporan Keuangan 2025
@@ -157,7 +155,7 @@
                                 </div>
                             </td>
                         </tr>
-                @empty
+                    @empty
                         <tr>
                             <td class="px-6 py-12 text-center" colspan="7">
                                 <div class="flex flex-col items-center justify-center text-gray-500">
