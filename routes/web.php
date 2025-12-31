@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\DokumenController;
 use App\Http\Controllers\Admin\KategoriController;
+use App\Http\Controllers\Admin\PenggunaController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Auth;
@@ -43,6 +44,10 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
     Route::get('/kategori', [KategoriController::class, 'index']);
     Route::get('/tambah-kategori', [KategoriController::class, 'create']);
     Route::post('/tambah-kategori', [KategoriController::class, 'store']);
+
+    Route::get('/pengguna', [PenggunaController::class, 'index']);
+    Route::get('/hak-akses', [PenggunaController::class, 'hakAkses']);
+    Route::post('/hak-akses', [PenggunaController::class, 'hakStore']);
 
 });
 

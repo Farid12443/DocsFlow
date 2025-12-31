@@ -84,7 +84,7 @@
             </div>
         </div>
 
-        <div class="dropdown">
+        <div class="dropdown" data-menu="pengguna">
             <button
                 class="dropdown-btn flex items-center justify-between w-full px-4 py-3 rounded-lg hover:bg-gray-100 nav-item">
                 <div class="flex items-center gap-3">
@@ -101,9 +101,9 @@
                 </svg>
             </button>
             <div class="dropdown-content ml-8 mt-2 space-y-2 text-sm">
-                <a href="#" class="block px-3 py-2 rounded hover:bg-green-50 hover:text-green-600 transition">Semua
+                <a href="/admin/pengguna" data-parent="pengguna" class="dropdown-link block px-3 py-2 rounded hover:bg-green-50 hover:text-green-600 transition">Semua
                     User</a>
-                <a href="#" class="block px-3 py-2 rounded hover:bg-green-50 hover:text-green-600 transition">Hak
+                <a href="/admin/hak-akses" data-parent="pengguna" class="dropdown-link block px-3 py-2 rounded hover:bg-green-50 hover:text-green-600 transition">Hak
                     Akses</a>
             </div>
         </div>
