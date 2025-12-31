@@ -53,12 +53,18 @@
                     @endforelse
 
                 </select>
+                 @error('kategori')
+                    <span class="text-red-500 text-sm">{{ $message }}</span>
+                @enderror
             </div>
 
             <div>
                 <label for="deskripsi" class="block text-sm font-medium text-gray-700">Deskripsi</label>
                 <textarea id="deskripsi" name="deskripsi" rows="3" placeholder="Deskripsi singkat dokumen"
                     class="mt-1 block w-full p-2 rounded-lg border-gray-300 shadow-sm focus:ring-green-500 focus:border-green-500"></textarea>
+                @error('deskripsi')
+                    <span class="text-red-500 text-sm">{{ $message }}</span>
+                @enderror
             </div>
 
             <div>
@@ -113,6 +119,9 @@
                     <option value="aktif">Aktif</option>
                     <option value="arsip">Arsip</option>
                 </select>
+                 @error('status')
+                    <span class="text-red-500 text-sm">{{ $message }}</span>
+                @enderror
             </div>
 
 
