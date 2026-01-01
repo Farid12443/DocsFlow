@@ -112,29 +112,6 @@
             <button
                 class="dropdown-btn flex items-center justify-between w-full px-4 py-3 rounded-lg hover:bg-gray-100 nav-item">
                 <div class="flex items-center gap-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24"
-                        class="size-6">
-                        <path
-                            d="m11.349,24H0v-11c0-1.654,1.346-3,3-3h8.349c-.706.571-1.325,1.244-1.831,2H3c-.551,0-1,.448-1,1v9h7.518c.506.756,1.125,1.429,1.831,2ZM18,0H6v2h12V0Zm3,5H3v2h18v-2Zm3,12c0,3.859-3.14,7-7,7s-7-3.141-7-7,3.14-7,7-7,7,3.141,7,7Zm-2,0c0-2.757-2.243-5-5-5s-5,2.243-5,5,2.243,5,5,5,5-2.243,5-5Zm-4-3h-2v2h-2v2h2v2h2v-2h2v-2h-2v-2Z" />
-                    </svg>
-                    <span>Versi Dokumen</span>
-                </div>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="chevron-down size-6 transition-transform duration-300">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-                </svg>
-            </button>
-            <div class="dropdown-content ml-8 mt-2 space-y-2 text-sm">
-                <a href="#" class="block px-3 py-2 rounded hover:bg-green-50 hover:text-green-600 transition">
-                    Riwayat Versi
-                </a>
-            </div>
-        </div>
-
-        <div class="dropdown">
-            <button
-                class="dropdown-btn flex items-center justify-between w-full px-4 py-3 rounded-lg hover:bg-gray-100 nav-item">
-                <div class="flex items-center gap-3">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-6">
                         <path stroke-linecap="round" stroke-linejoin="round"

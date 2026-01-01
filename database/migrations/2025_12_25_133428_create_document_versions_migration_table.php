@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('document_id')->constrained('tb_documents', 'id')->onDelete('cascade');
             $table->string('versi');
             $table->string('file_path');
+            $table->boolean('is_active')->default(false);
             $table->text('catatan_perubahan')->nullable();
             $table->timestamps();
         });

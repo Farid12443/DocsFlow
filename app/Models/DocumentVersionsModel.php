@@ -10,4 +10,12 @@ class DocumentVersionsModel extends Model
     {
         return $this->belongsTo(DocumentsModel::class, 'document_id');
     }
+
+    protected $table = 'tb_document_versions';
+
+    protected $primaryKey = 'id';
+
+    protected $guarded = [
+        'id',
+    ];
 }

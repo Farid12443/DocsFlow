@@ -53,7 +53,7 @@
                     @endforelse
 
                 </select>
-                 @error('kategori')
+                @error('kategori')
                     <span class="text-red-500 text-sm">{{ $message }}</span>
                 @enderror
             </div>
@@ -119,7 +119,7 @@
                     <option value="aktif">Aktif</option>
                     <option value="arsip">Arsip</option>
                 </select>
-                 @error('status')
+                @error('status')
                     <span class="text-red-500 text-sm">{{ $message }}</span>
                 @enderror
             </div>

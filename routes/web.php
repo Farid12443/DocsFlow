@@ -40,6 +40,9 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
     Route::get('/aktif', [DokumenController::class, 'documentActiv']);
     Route::get('/arsip', [DokumenController::class, 'documentArsip']);
     Route::get('/create', [DokumenController::class, 'create']);
+    Route::get('/dokumen/{id}/versi', [DokumenController::class, 'version']);
+    Route::put('/dokumen/{id}/revisi-dokumen', [DokumenController::class, 'revisiDokumen']);
+    Route::put('/dokumen/{id}/update-status', [DokumenController::class, 'updateStatus']);
 
     Route::get('/kategori', [KategoriController::class, 'index']);
     Route::get('/tambah-kategori', [KategoriController::class, 'create']);
