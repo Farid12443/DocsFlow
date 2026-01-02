@@ -57,7 +57,8 @@
 
         <div class="overflow-x-auto rounded-xl border border-gray-200 bg-white shadow-sm">
             <table class="w-full text-sm">
-                @forelse ($dokumen as $item)
+
+                @if ($dokumen->count() > 0)
                     <thead class="bg-gray-100 text-gray-700">
                         <tr>
                             <th class="pl-6 py-3 text-left">Judul</th>
@@ -69,13 +70,13 @@
                             <th class="pr-4 py-3 text-center">Aksi</th>
                         </tr>
                     </thead>
+                @endif
 
-                    <tbody class="divide-y">
-
-
+                <tbody class="divide-y">
+                    @forelse ($dokumen as $item)
                         <tr class="hover:bg-gray-50 transition">
                             <td class="pl-6 py-3 font-medium text-gray-800">
-                               {{$item->judul}}
+                                {{$item->judul}}
                             </td>
                             <td class="px-4 py-3">{{ $item->deskripsi}}
                             </td>
@@ -89,7 +90,7 @@
                             </td>
 
                             <td class="px-4 py-3 text-center text-gray-500">
-                               {{ $item->created_at->format('d M Y') }}
+                                {{ $item->created_at->format('d M Y') }}
                             </td>
 
                             <td class="pr-4 py-3 text-center">
@@ -156,7 +157,7 @@
                                 </div>
                             </td>
                         </tr>
-                @empty
+                    @empty
                         <tr>
                             <td class="px-6 py-12 text-center" colspan="7">
                                 <div class="flex flex-col items-center justify-center text-gray-500">

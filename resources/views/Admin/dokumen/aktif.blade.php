@@ -57,17 +57,19 @@
 
         <div class="overflow-x-auto rounded-xl border border-gray-200 bg-white shadow-sm">
             <table class="w-full text-sm">
-                <thead class="bg-gray-100 text-gray-700">
-                    <tr>
-                        <th class="pl-6 py-3 text-left">Judul</th>
-                        <th class="px-4 py-3 text-left">Deskripsi</th>
-                        <th class="px-4 py-3 text-left">Kategori</th>
-                        <th class="px-4 py-3 text-left">Pemilik</th>
-                        <th class="px-4 py-3 text-center">Status</th>
-                        <th class="px-4 py-3 text-center">Tanggal</th>
-                        <th class="pr-4 py-3 text-center">Aksi</th>
-                    </tr>
-                </thead>
+                @if ($dokumen->count() > 0)
+                    <thead class="bg-gray-100 text-gray-700">
+                        <tr>
+                            <th class="pl-6 py-3 text-left">Judul</th>
+                            <th class="px-4 py-3 text-left">Deskripsi</th>
+                            <th class="px-4 py-3 text-left">Kategori</th>
+                            <th class="px-4 py-3 text-left">Pemilik</th>
+                            <th class="px-4 py-3 text-center">Status</th>
+                            <th class="px-4 py-3 text-center">Tanggal</th>
+                            <th class="pr-4 py-3 text-center">Aksi</th>
+                        </tr>
+                    </thead>
+                @endif
 
                 <tbody class="divide-y">
                     @forelse ($dokumen as $item)

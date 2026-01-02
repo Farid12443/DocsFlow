@@ -54,14 +54,18 @@
 
         <div class="overflow-x-auto rounded-xl border border-gray-200 bg-white shadow-sm">
             <table class="w-full text-sm">
-                <thead class="bg-gray-100 text-gray-700">
-                    <tr>
+
+                @if ($kategori->count() > 0)
+                    <thead class="bg-gray-100 text-gray-700">
+                       <tr>
                         <th class="pl-6 py-3 text-left">Nama Kategori</th>
                         <th class="px-4 py-3 text-left">Keterangan</th>
                         <th class="px-4 py-3 text-left">Tanggal Dibuat</th>
                         <th class="pr-4 py-3 text-center">Aksi</th>
                     </tr>
-                </thead>
+                    </thead>
+                @endif
+
                 <tbody class="divide-y">
                     @forelse ($kategori as $item)
                         <tr class="hover:bg-gray-50 transition">

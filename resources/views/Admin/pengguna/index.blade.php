@@ -55,16 +55,20 @@
 
         <div class="overflow-x-auto rounded-xl border border-gray-200 bg-white shadow-sm">
             <table class="w-full text-sm">
-                <thead class="bg-gray-100 text-gray-700">
-                    <tr>
-                        <th class="pl-6 py-3 text-left">Nama Pengguna</th>
-                        <th class="px-4 py-3 text-left">Email</th>
-                        <th class="px-4 py-3 text-left">Role</th>
-                        <th class="px-4 py-3 text-left">Jumlah Dokumen</th>
-                        <th class="px-4 py-3 text-left">Tanggal Gabung</th>
-                        <th class="pr-4 py-3 text-center">Aksi</th>
-                    </tr>
-                </thead>
+
+                @if ($pengguna->count() > 0)
+                    <thead class="bg-gray-100 text-gray-700">
+                        <tr>
+                            <th class="pl-6 py-3 text-left">Nama Pengguna</th>
+                            <th class="px-4 py-3 text-left">Email</th>
+                            <th class="px-4 py-3 text-left">Role</th>
+                            <th class="px-4 py-3 text-left">Jumlah Dokumen</th>
+                            <th class="px-4 py-3 text-left">Tanggal Gabung</th>
+                            <th class="pr-4 py-3 text-center">Aksi</th>
+                        </tr>
+                    </thead>
+                @endif
+            
                 <tbody class="divide-y">
                     @forelse ($pengguna as $item)
                         <tr class="hover:bg-gray-50 transition">
