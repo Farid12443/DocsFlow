@@ -203,8 +203,8 @@
                                             <span>Not Found - 404</span>
                                         @endswitch
 
-                                        <a onclick="openHapusDokumen()"
-                                            class="flex items-center gap-2 px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition">
+                                        <a class="flex items-center gap-2 px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition"
+                                            onclick="openHapusDokumen()">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                                 stroke-width="1.5" stroke="currentColor" class="size-4">
                                                 <path stroke-linecap="round" stroke-linejoin="round"

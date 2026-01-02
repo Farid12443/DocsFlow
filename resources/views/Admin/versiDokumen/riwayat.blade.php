@@ -27,28 +27,6 @@
                     Daftar perubahan dan versi dokumen
                 </p>
             </div>
-            <div class="flex flex-col md:flex-row gap-4 items-center justify-end w-full md:w-auto">
-                <div class="relative w-full md:w-80">
-                    <input type="text" placeholder="Cari kategori..."
-                        class="w-full rounded-lg border border-gray-300 px-4 py-3 pl-12 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none transition">
-                    <svg class="absolute left-4 top-3.5 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg"
-                        fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="m21 21-4.35-4.35m1.85-5.15a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z" />
-                    </svg>
-                </div>
-
-                <div class="flex items-center gap-3">
-                    <a href="/admin/tambah-kategori"
-                        class="flex items-center justify-center px-4 py-3 rounded-lg bg-green-500 text-white hover:bg-green-600 hover:shadow-md transition focus:outline-none focus:ring-2 focus:ring-green-500">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="h-5 w-5 mr-2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                        </svg>
-                        Tambah Kategori
-                    </a>
-                </div>
-            </div>
         </div>
 
         <div class="bg-white rounded-xl p-6 shadow mb-6">
