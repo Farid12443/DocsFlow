@@ -50,13 +50,13 @@ class PenggunaController extends Controller
             'hak_akses.in' => 'Hak akses hanya boleh view, edit, atau delete',
         ]);
 
-        dd($request);
+        // dd($request);
 
-        // DocumentAccessModel::create([
-        //     'document_id' => $request->dokumen,
-        //     'user_id' => $request->pengguna,
-        //     'permission' => $request->hak_akses,
-        // ]);
+        DocumentAccessModel::create([
+            'document_id' => $request->dokumen,
+            'user_id' => $request->pengguna,
+            'permission' => $request->hak_akses,
+        ]);
 
         return redirect('/admin/hak-akses')->with('success', 'Hak Akses berhasil ditambah');
     }

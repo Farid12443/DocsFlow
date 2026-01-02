@@ -75,24 +75,20 @@
                     @forelse ($dokumen as $item)
                         <tr class="hover:bg-gray-50 transition">
                             <td class="pl-6 py-3 font-medium text-gray-800">
-                                Laporan Keuangan 2025
+                                {{$item->judul}}
                             </td>
-                            <td class="px-4 py-3">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas,
-                                fugiat!
+                            <td class="px-4 py-3">{{ $item->deskripsi}}
                             </td>
-                            <td class="px-4 py-3 text-gray-600">Keuangan</td>
-                            <td class="px-4 py-3 text-gray-600">Admin</td>
-
+                            <td class="px-4 py-3 text-gray-600">{{ $item->category->nama_kategori }}</td>
+                            <td class="px-4 py-3 text-gray-600">{{ Str::title($item->user->nama) }}</td>
                             <td class="px-4 py-3 text-center">
                                 <span class="rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-700">
                                     Aktif
                                 </span>
                             </td>
-
                             <td class="px-4 py-3 text-center text-gray-500">
-                                12 Jan 2025
+                                {{ $item->created_at->format('d M Y') }}
                             </td>
-
                             <td class="pr-4 py-3 text-center">
                                 <div class="relative group">
                                     <button data-action-btn
@@ -106,7 +102,7 @@
 
                                     <div data-tooltip
                                         class="fixed w-48 bg-white border border-gray-200 rounded-md shadow-lg opacity-0 pointer-events-none transition z-9999">
-                                        <a href="#"
+                                        <a href="{{ route('dokumen.show', $item->id) }}"
                                             class="flex items-center gap-2 px-4 py-2 text-sm text-blue-600 hover:bg-blue-50 transition">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                                 stroke-width="1.5" stroke="currentColor" class="size-4">
@@ -117,16 +113,16 @@
                                             </svg>
                                             View Laporan
                                         </a>
-                                        <a href="#"
+                                        <a href="/admin/dokumen/{{ $item->id }}/versi"
                                             class="flex items-center gap-2 px-4 py-2 text-sm text-yellow-600 hover:bg-yellow-50 transition">
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                stroke-width="1.5" stroke="currentColor" class="size-4">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" 
+                                                stroke-width="1.5" stroke="currentColor"  class="size-4">
                                                 <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m.75 12 3 3m0 0 3-3m-3 3v-6m-1.5-9H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+                                                d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
                                             </svg>
-                                            Download Laporan
+                                            Riwayat Versi
                                         </a>
-                                        <a href="#"
+                                        <a href="{{ route('dokumen.edit', $item->id) }}"
                                             class="flex items-center gap-2 px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 transition">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                                 stroke-width="1.5" stroke="currentColor" class="size-4">
@@ -135,17 +131,48 @@
                                             </svg>
                                             Edit Laporan
                                         </a>
-                                        <a href="#"
-                                            class="flex items-center gap-2 px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition">
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                stroke-width="1.5" stroke="currentColor" class="size-4">
-                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z" />
-                                            </svg>
-                                            Arsipkan Laporan
-                                        </a>
-                                        <a href="#"
-                                            class="flex items-center gap-2 px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition">
+
+                                        @switch($item->status)
+                                            @case('aktif')
+                                                  <form action="/admin/dokumen/{{ $item->id }}/update-status" method="post"
+                                                    class="flex items-center gap-2 px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition">
+                                                    @csrf
+                                                    @method('PUT')
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                        stroke-width="1.5" stroke="currentColor" class="size-4">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z" />
+                                                    </svg>
+                                                    <input name="status" type="text" value="arsip" hidden>
+                                                    <button type="submit">
+                                                        Arsipkan Laporan
+                                                    </button>
+                                                </form>
+                                            @break
+
+                                            @case('arsip')
+                                                <form action="/admin/dokumen/{{ $item->id }}/update-status" method="post"
+                                                    class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-red-50 transition">
+                                                    @csrf
+                                                    @method('PUT')
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                        stroke-width="1.5" stroke="currentColor" class="size-4">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z" />
+                                                    </svg>
+                                                    <input name="status" type="text" value="aktif" hidden>
+                                                    <button type="submit">
+                                                        Aktifkan Laporan
+                                                    </button>
+                                                </form>
+                                            @break
+
+                                        @default
+                                            <span>Not Found - 404</span>
+                                        @endswitch
+
+                                        <a class="flex items-center gap-2 px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition"
+                                            onclick="openHapusDokumen()">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                                 stroke-width="1.5" stroke="currentColor" class="size-4">
                                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -178,6 +205,8 @@
             </table>
         </div>
     </div>
+
+    
     <script>
         document.querySelectorAll('[data-action-btn]').forEach(btn => {
             const wrapper = btn.parentElement

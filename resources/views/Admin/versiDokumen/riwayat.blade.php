@@ -48,7 +48,7 @@
                 </div>
                 <div>
                     <p class="text-gray-500">Versi Aktif</p>
-                    <p class="font-medium">v1.1</p>
+                    <p class="font-medium">{{ $dokumen->activeVersion?->versi ?? '-' }}</p>
                 </div>
             </div>
         </div>
@@ -77,14 +77,26 @@
                                 @endif
                             </td>
                             <td class="px-4 py-3 text-gray-600">{{ $v->catatan_perubahan }}</td>
-                            <td class="px-4 py-3">Admin</td>
+                            <td class="px-4 py-3">
+                                @if ( $v->document->user->role == 'admin')
+                                    <span class="px-3 py-1 text-xs rounded-full bg-red-100 text-red-600">Admin</span>
+                                @else
+                                    <span class="px-3 py-1 text-xs rounded-full bg-blue-100 text-blue-600">User</span>
+                                @endif
+                            </td>
                             <td class="px-4 py-3 text-gray-500">{{ $v->updated_at->format('d M Y ') }}</td>
                             <td class="px-4 py-3 text-center space-x-2">
-                                <a href="#" class="text-blue-600 hover:underline">Download</a>
-                                @if ($v->is_active)
-                                    <button class="text-red-500 hover:underline">
-                                        Rollback
-                                    </button>
+                                @if(!$v->is_active)
+                                    <form action="{{ route('admin.dokumen.rollback', $v->id) }}"
+                                        method="POST"
+                                        class="inline">
+                                        @csrf
+                                        <button class="text-red-500 hover:underline" onclick="this.querySelector('svg').classList.add('animate-spin')">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
+                                            </svg>
+                                        </button>
+                                    </form>
                                 @endif
                             </td>
                         </tr>
@@ -93,5 +105,5 @@
             </table>
         </div>
     </div>
-
+  <x-modal-success/>
 </x-app-layouts>

@@ -42,6 +42,7 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
     Route::get('/create', [DokumenController::class, 'create']);
     Route::get('/dokumen/{id}/versi', [DokumenController::class, 'version']);
     Route::put('/dokumen/{id}/revisi-dokumen', [DokumenController::class, 'revisiDokumen']);
+    Route::post('/dokumen/{id}/rollback', [DokumenController::class, 'rollback'])->name('admin.dokumen.rollback');
     Route::put('/dokumen/{id}/update-status', [DokumenController::class, 'updateStatus']);
 
     Route::get('/kategori', [KategoriController::class, 'index']);

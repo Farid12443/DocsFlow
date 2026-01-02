@@ -121,7 +121,10 @@ class DokumenController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $dokumen = DocumentsModel::withCount('versions')->findOrFail($id);
+        // dd($dokumen);
+
+        return view('Admin.dokumen.detail', compact('dokumen'));
     }
 
     public function version(string $id)
@@ -132,6 +135,28 @@ class DokumenController extends Controller
         $versi_dokumen = $dokumen->versions()->orderBy('created_at', 'asc')->get();
 
         return view('Admin.versiDokumen.riwayat', compact('dokumen', 'versi_dokumen'));
+    }
+
+    public function rollback($versionId)
+    {
+        $version = DocumentVersionsModel::findOrFail($versionId);
+
+        DB::transaction(function () use ($version) {
+
+            DocumentVersionsModel::where('document_id', $version->document_id)
+                ->update(['is_active' => false]);
+
+            $version->update([
+                'is_active' => true,
+            ]);
+
+            DocumentsModel::where('id', $version->document_id)
+                ->update([
+                    'file_path' => $version->file_path,
+                ]);
+        });
+
+        return back()->with('success', "Berhasil rollback ke versi {$version->versi}");
     }
 
     /**

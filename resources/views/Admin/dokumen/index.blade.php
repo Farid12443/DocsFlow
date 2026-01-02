@@ -136,7 +136,7 @@
 
                                     <div data-tooltip
                                         class="fixed w-48 bg-white border border-gray-200 rounded-md shadow-lg opacity-0 pointer-events-none transition z-9999">
-                                        <a href="#"
+                                        <a href="{{ route('dokumen.show', $item->id) }}"
                                             class="flex items-center gap-2 px-4 py-2 text-sm text-blue-600 hover:bg-blue-50 transition">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                                 stroke-width="1.5" stroke="currentColor" class="size-4">

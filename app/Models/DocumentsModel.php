@@ -21,6 +21,12 @@ class DocumentsModel extends Model
         return $this->hasMany(DocumentVersionsModel::class, 'document_id');
     }
 
+    public function activeVersion()
+    {
+        return $this->hasOne(DocumentVersionsModel::class, 'document_id')
+            ->where('is_active', true);
+    }
+
     public function accesses()
     {
         return $this->hasMany(DocumentAccessModel::class, 'document_id');
